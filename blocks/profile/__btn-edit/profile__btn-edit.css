@@ -1,0 +1,18 @@
+.profile__btn-edit {
+  background: none;
+  border: none;
+  padding: 0;
+  margin-left: 10px;
+  max-width: 18px;
+  max-height: 18px;
+}
+
+@media screen and (min-width: 1280px) {
+  .profile__btn-edit {
+    margin-left: 18px;
+    max-width: 24px;
+    max-height: 24px;
+  }
+}
+
+/*Delete img-edit make like in brn-add*/
