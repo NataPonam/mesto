@@ -1,0 +1,5 @@
+.card {
+  display: grid;
+  grid-template-columns: repeat(auto, minmax(284px, 1fr));
+  border-radius: 5px;
+}
