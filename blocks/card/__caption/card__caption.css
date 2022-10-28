@@ -8,5 +8,6 @@
   align-items: center;
   padding-left: 21px;
   padding-right: 15px;
-
+  max-width: 282px;
+  box-sizing: border-box;
 }

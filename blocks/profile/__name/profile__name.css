@@ -4,6 +4,7 @@
   font-size: 27px;
   line-height: 33px;
   display: inline-block;
+  text-align: center;
 }
 
 @media screen and (min-width: 1280px) {
