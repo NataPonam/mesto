@@ -10,6 +10,7 @@
   justify-content: center;
   align-items: center;
   padding: 25px 22px;
+  position: relative;
 }
 
 /*Check all parametres for wide screen*/
