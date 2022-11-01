@@ -66,7 +66,7 @@
         <img class="card__img" src="../mesto/images/Байкал.jpg" alt="Байкал">
         <div class="card__caption">
           <h3 class="card__title">Иркутск</h3>
-          <img class="card__like" src="../mesto/images/heart.svg" alt="сердце">
+          <button class="card__like" alt="сердце"></button>
         </div>
       </li>
     </ul>
@@ -76,13 +76,15 @@
   </footer>
   <div class="popup">
     <div class="popup__container">
+      <form class="popup__form" name="form">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <fieldset class="popup__input-box">
+          <input class="popup__name popup__input" type="text" name="profile-name" autocomplete="off">
+          <input class="popup__info popup__input" type="text" name="profile-info" autocomplete="off">
+        </fieldset>
+        <button class="popup__btn" type="submit">Сохранить</button>
+      </form>
       <button class="popup__close-icon"></button>
-      <h3 class="popup__title">Редактировать профиль</h3>
-      <p class="popup__name">Жак-Ив Кусто</p>
-      <!--Delete name-->
-      <p class="popup__info">Исследователь океана</p>
-      <!--Delete info-->
-      <button class="popup__btn">Сохранить</button>
     </div>
   </div>
   <script src="./scripts/index.js"></script>

@@ -1,3 +1,26 @@
 .card__like {
   padding-right: 6px;
+  background-image: url(../../../images/heart.svg);
+  background-repeat: no-repeat;
+  background-color: #fff;
+  color: black;
+  width: 22px;
+  height: 19px;
+  border: none;
+  cursor: pointer;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+  transition: background 2000s;
 }
+
+.card__like:hover {
+  opacity: .5;
+}
+
+.card__like:active {
+  background-image: url(../../../images/heart_active.svg);
+  opacity: 1;
+  transition: background 0s;
+}
+
+/*Change code heart"

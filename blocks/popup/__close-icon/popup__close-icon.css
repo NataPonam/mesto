@@ -1,10 +1,22 @@
 .popup__close-icon {
   all: unset;
   background-image: url(../../../images/Close\ Icon.svg);
+  background-repeat: no-repeat;
   width: 20px;
   height: 20px;
   position: absolute;
   top: -35px;
   right: 0px;
   color: #fff;
+}
+
+
+@media screen and (min-width: 1280px) {
+  .popup__close-icon {
+    background-image: url(../../../images/Close\ Icon1280.svg);
+    width: 32px;
+    height: 32px;
+    top: -39px;
+    right: -42px;
+  }
 }

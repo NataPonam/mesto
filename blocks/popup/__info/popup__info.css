@@ -1,12 +1,11 @@
 .popup__info {
-  margin: 0;
-  padding-top: 30px;
-  padding-bottom: 13px;
-  font-weight: 400;
-  font-size: 14px;
-  line-height: 17px;
-  color: #000000;
-  border-bottom: 1px solid #ccc;
-  /*opacity: 0.2;*/
-  width: 100%;
+  margin: 46px 0 45px;
+  padding: 0;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__info {
+    margin: 40px 0 48px;
+    padding-bottom: 10px;
+  }
 }

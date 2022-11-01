@@ -1,7 +1,12 @@
 .popup__btn {
-  margin-top: 45px;
+  margin-top: 0;
   padding: 0;
   background-color: #000;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  font-family: 'Inter', Arial, sans-serif;
   width: 238px;
   height: 46px;
   border-radius: 2px;
@@ -17,7 +22,10 @@
 }
 
 @media screen and (min-width: 1280px) {
-  .profile__btn-add {
-    width: 150px;
+  .popup__btn {
+    width: 358px;
+    height: 50px;
+    font-size: 18px;
+    line-height: 22px;
   }
 }
