@@ -18,7 +18,8 @@
 * Доработать кнопку "like" на JS
 
 ##### GitHub
-https://github.com/NataPonam/mesto.git/index.html
+ https://nataponam.github.io/mesto/index.html
+
 
 
 
