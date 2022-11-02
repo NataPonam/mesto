@@ -18,7 +18,7 @@
   opacity: .5;
 }
 
-.card__like:active {
+.card__like:focus {
   background-image: url(../../../images/heart_active.svg);
   background-color: #fff;
   opacity: 1;
