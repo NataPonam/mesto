@@ -17,6 +17,9 @@
 * Доработать функционал добавления/удаления профиля
 * Доработать кнопку "like" на JS
 
+##### GitHub
+https://github.com/NataPonam/mesto.git/index.html
+
 
 
 
