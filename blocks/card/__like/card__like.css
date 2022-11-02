@@ -1,5 +1,6 @@
 .card__like {
-  padding-right: 6px;
+  padding: 0;
+  padding-right: 22px;
   background-image: url(../../../images/heart.svg);
   background-repeat: no-repeat;
   background-color: #fff;
@@ -19,8 +20,13 @@
 
 .card__like:active {
   background-image: url(../../../images/heart_active.svg);
+  background-color: #fff;
   opacity: 1;
   transition: background 0s;
 }
 
-/*Change code heart"
+@media screen and (min-width: 1280px) {
+  .card__like {
+    padding-right: 27px;
+  }
+}
