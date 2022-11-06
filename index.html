@@ -20,61 +20,61 @@
 
   <main>
     <section class="profile">
-      <div class="profile__wrapper">
-        <img class="profile__avatar" src="./images/Avatar.svg" alt="фото">
-        <div class="profile__container">
-          <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <button class="profile__btn-edit" type="submit"></button>
-          <p class="profile__info">Исследователь океана</p>
-        </div>
+      <img class="profile__avatar" src="./images/avatar_img.jpg" alt="фото">
+      <div class="profile__container">
+        <h1 class="profile__name">Жак-Ив Кусто</h1>
+        <button class="profile__btn-edit" type="button" aria-label="edit"></button>
+        <p class="profile__info">Исследователь океана</p>
       </div>
-      <button class="profile__btn-add" type="submit"></button>
+      </div>
+      <button class="profile__btn-add" type="button" aria-label="add"></button>
     </section>
-
-    <ul class="cards">
-      <li class="card">
-        <img class="card__img" src="./images/Карачаевск.jpg" alt=" Карачаевск">
-        <div class="card__caption">
-          <h3 class="card__title">Карачаево-Черкессия</h3>
-          <button class="card__like"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="./images/Эльбрус.png" alt="Эльбрус">
-        <div class="card__caption">
-          <h3 class="card__title">Гора Эльбрус</h3>
-          <button class="card__like"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="./images/Домбай.png" alt="Домбай">
-        <div class="card__caption">
-          <h3 class="card__title">Домбай</h3>
-          <button class="card__like"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="./images/Красноярские_столбы.jpg" alt="Красноярские столбы">
-        <div class="card__caption">
-          <h3 class="card__title">Красноярск</h3>
-          <button class="card__like"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="./images/Озеро_Эльтон_Волгоград.jpg" alt="Волгоград">
-        <div class="card__caption">
-          <h3 class="card__title">Волгоград</h3>
-          <button class="card__like"></button>
-        </div>
-      </li>
-      <li class="card">
-        <img class="card__img" src="./images/Байкал.jpg" alt="Байкал">
-        <div class="card__caption">
-          <h3 class="card__title">Иркутск</h3>
-          <button class="card__like"></button>
-        </div>
-      </li>
-    </ul>
+    <section class="cards">
+      <ul class="cards__list">
+        <li class="card">
+          <img class="card__img" src="./images/Карачаевск.jpg" alt=" Карачаевск">
+          <div class="card__caption">
+            <h2 class="card__title">Карачаево-Черкессия</h2>
+            <button class="card__like" type="button" aria-label="like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/Эльбрус.png" alt="Эльбрус">
+          <div class="card__caption">
+            <h2 class="card__title">Гора Эльбрус</h2>
+            <button class="card__like" type="button" aria-label="like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/Домбай.png" alt="Домбай">
+          <div class="card__caption">
+            <h2 class="card__title">Домбай</h2>
+            <button class="card__like" type="button" aria-label="like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/Красноярские_столбы.jpg" alt="Красноярские столбы">
+          <div class="card__caption">
+            <h2 class="card__title">Красноярск</h2>
+            <button class="card__like" type="button" aria-label="like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/Озеро_Эльтон_Волгоград.jpg" alt="Волгоград">
+          <div class="card__caption">
+            <h2 class="card__title">Волгоград</h2>
+            <button class="card__like" type="button" aria-label="like"></button>
+          </div>
+        </li>
+        <li class="card">
+          <img class="card__img" src="./images/Байкал.jpg" alt="Байкал">
+          <div class="card__caption">
+            <h2 class="card__title">Иркутск</h2>
+            <button class="card__like" type="button" aria-label="like"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
   </main>
 
   <footer class="footer">
@@ -86,12 +86,12 @@
       <form class="popup__form" name="form">
         <h3 class="popup__title">Редактировать профиль</h3>
         <fieldset class="popup__input-box">
-          <input class="popup__name popup__input" type="text" name="profile-name" autocomplete="off">
-          <input class="popup__info popup__input" type="text" name="profile-info" autocomplete="off">
+          <input class="popup__input popup__input_name" type="text" name="profile-name" autocomplete="off">
+          <input class="popup__input popup__input_info" type="text" name="profile-info" autocomplete="off">
+          <button class="popup__btn" type="submit">Сохранить</button>
         </fieldset>
-        <button class="popup__btn" type="submit">Сохранить</button>
+        <button class="popup__close-icon" type="button" aria-label="close"></button>
       </form>
-      <button class="popup__close-icon"></button>
     </div>
   </div>
 

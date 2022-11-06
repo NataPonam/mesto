@@ -2,20 +2,17 @@
   background-color: #fff;
   border-radius: 10px;
   max-width: 282px;
-  max-height: 322px;
   display: grid;
   align-content: space-between;
   position: relative;
   padding: 25px 22px;
   box-sizing: border-box;
-  margin-top: 123px;
+  margin: auto;
 }
 
 @media screen and (min-width: 1280px) {
   .popup__container {
-    margin-top: 195px;
     min-width: 430px;
-    max-height: 330px;
-    padding: 34px 36px 37px;
+    padding: 0;
   }
 }

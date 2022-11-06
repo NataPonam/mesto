@@ -1,8 +1,9 @@
 .profile__btn-add {
+  padding: 0;
   background: url(../../../images/Vector_btn_add_320.svg) no-repeat center;
   border: 2px solid #fff;
   border-radius: 2px;
-  padding: 0;
+  background-size: 16px;
   width: 282px;
   height: 50px;
   cursor: pointer;
@@ -11,11 +12,13 @@
 }
 
 .profile__btn-add:hover {
-  opacity: .5;
+  opacity: .6;
 }
 
 @media screen and (min-width: 1280px) {
   .profile__btn-add {
+    background-size: 22px;
     width: 150px;
+    margin-left: auto;
   }
 }
