@@ -5,3 +5,9 @@
   padding: 0;
   margin: 0 auto;
 }
+
+@media screen and (min-width: 1280px) {
+  .popup__input-box {
+    min-width: 358px;
+  }
+}
