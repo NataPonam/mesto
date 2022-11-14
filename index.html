@@ -29,15 +29,21 @@
       <button class="profile__btn-add" type="button" aria-label="добавить"></button>
     </section>
     <section class="cards">
+
       <ul class="cards__list">
-        <li class="card">
-          <img class="card__img" src="./images/Карачаевск.jpg" alt=" Карачаевск">
-          <div class="card__caption">
-            <h2 class="card__title">Карачаево-Черкессия</h2>
-            <button class="card__like" type="button" aria-label="нравится"></button>
-          </div>
-        </li>
-        <li class="card">
+        <template id="cards__template">
+          <li class="card">
+            <button class="card__trash" type="button" aria-label="удалить"></button>
+            <img class="card__img" src="./images/Карачаевск.jpg" alt=" Карачаевск">
+            <div class="card__caption">
+              <h2 class="card__title"></h2>
+              <button class="card__like" type="button" aria-label="нравится"></button>
+            </div>
+          </li>
+        </template>
+
+        <!--<li class="card">
+          <button class="card__trash" type="button" aria-label="удалить"></button>
           <img class="card__img" src="./images/Эльбрус.png" alt="Эльбрус">
           <div class="card__caption">
             <h2 class="card__title">Гора Эльбрус</h2>
@@ -45,6 +51,7 @@
           </div>
         </li>
         <li class="card">
+          <button class="card__trash" type="button" aria-label="удалить"></button>
           <img class="card__img" src="./images/Домбай.png" alt="Домбай">
           <div class="card__caption">
             <h2 class="card__title">Домбай</h2>
@@ -52,6 +59,7 @@
           </div>
         </li>
         <li class="card">
+          <button class="card__trash" type="button" aria-label="удалить"></button>
           <img class="card__img" src="./images/Красноярские_столбы.jpg" alt="Красноярские столбы">
           <div class="card__caption">
             <h2 class="card__title">Красноярск</h2>
@@ -59,6 +67,7 @@
           </div>
         </li>
         <li class="card">
+          <button class="card__trash" type="button" aria-label="удалить"></button>
           <img class="card__img" src="./images/Озеро_Эльтон_Волгоград.jpg" alt="Волгоград">
           <div class="card__caption">
             <h2 class="card__title">Волгоград</h2>
@@ -66,12 +75,13 @@
           </div>
         </li>
         <li class="card">
+          <button class="card__trash" type="button" aria-label="удалить"></button>
           <img class="card__img" src="./images/Байкал.jpg" alt="Байкал">
           <div class="card__caption">
             <h2 class="card__title">Иркутск</h2>
             <button class="card__like" type="button" aria-label="нравится"></button>
           </div>
-        </li>
+        </li>-->
       </ul>
     </section>
   </main>
@@ -80,6 +90,7 @@
     <p class="footer__copyright">&copy;&nbsp;2022&nbsp;Mesto Russia</p>
   </footer>
 
+  <!--Редактировать профиль-->
   <div class="popup">
     <div class="popup__container">
       <form class="popup__form" name="form">
@@ -89,6 +100,23 @@
           <input class="popup__input popup__input_type_info" type="text" name="profile-info" autocomplete="off">
         </fieldset>
         <button class="popup__btn" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__close-icon" type="button" aria-label="закрыть"></button>
+    </div>
+  </div>
+
+  <!--Добавить новое место-->
+  <div class="popup__places">
+    <div class="popup__container">
+      <form class="popup__form-places" name="form">
+        <h3 class="popup__title">Новое место</h3>
+        <fieldset class="popup__input-box">
+          <input class="popup__input popup__input_type_place" type="text" name="place" autocomplete="off"
+            placeholder="Название">
+          <input class="popup__input popup__input_type_link" type="text" name="place-link" autocomplete="off"
+            placeholder="Ссылка на картинку">
+        </fieldset>
+        <button class="popup__btn" type="submit">Создать</button>
       </form>
       <button class="popup__close-icon" type="button" aria-label="закрыть"></button>
     </div>

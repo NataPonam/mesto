@@ -1,5 +1,4 @@
-.popup {
-  visibility: hidden;
+.popup__places {
   display: none;
   width: 100%;
   height: 100%;

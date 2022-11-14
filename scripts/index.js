@@ -30,4 +30,106 @@ function formSubmitHandler(evt) {
 
 formElement.addEventListener('submit', formSubmitHandler);
 
+//Попап добавления локации//
 
+let popupEl = document.querySelector('.popup__places');
+let popupPlaceOpen = document.querySelector('.profile__btn-add');
+let popupPlaceClose = popupEl.querySelector('.popup__close-icon');
+
+
+function openPopupPlaces() {
+  popupEl.classList.add('popup__places_opened');
+
+};
+function closePopupPlaces() {
+  popupEl.classList.remove('popup__places_opened');
+};
+
+popupPlaceOpen.addEventListener('click', openPopupPlaces);
+popupPlaceClose.addEventListener('click', closePopupPlaces);
+
+//Карточки//
+
+const initialCards = [
+  {
+    name: 'Архыз',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg'
+  },
+  {
+    name: 'Челябинская область',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg'
+  },
+  {
+    name: 'Иваново',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg'
+  },
+  {
+    name: 'Камчатка',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg'
+  },
+  {
+    name: 'Холмогорский район',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg'
+  },
+  {
+    name: 'Байкал',
+    link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg'
+  }
+];
+
+//Переменные//
+
+const cardsBox = document.querySelector('.cards__list'); //СПИСОК ВСЕХ КАРТОЧЕК//
+const formPlaces = document.querySelector('.popup__form-places');//ФОРМА//
+const place = document.querySelector('.popup__input_type_place'); //ИНПУТ МЕСТО//
+const direction = document.querySelector('.popup__input_type_link'); //ИНПУТ ССЫЛКА//
+
+const handleSubmitAddPlace = (event) => {
+  event.preventDefault();
+  renderCards({ name: place.value, link: direction.value });
+  place.value = ' '; //очистить поля//
+  direction.value = ' ';
+  closePopupPlaces();//закрыть попап по кнопке сохранить//
+}
+
+formPlaces.addEventListener('submit', handleSubmitAddPlace);
+
+
+//Получаем шаблон//
+const cardTemplate = document.querySelector('#cards__template').content.querySelector('.card');
+
+//Удаление карточки//
+
+const handleDeleteCard = (event) => {
+  event.target.closest('.card').remove();
+}
+
+//Генерация карточки//
+
+const generateCard = (cardInfo) => {
+  const cardClone = cardTemplate.cloneNode(true);
+
+  const title = cardClone.querySelector('.card__title');
+  title.textContent = cardInfo.name;
+
+  const image = cardClone.querySelector('.card__img');
+  image.src = cardInfo.link;
+
+  const deleteBtn = cardClone.querySelector('.card__trash');
+  deleteBtn.addEventListener('click', handleDeleteCard)
+
+
+  return cardClone;
+}
+
+//Добавление карточки//
+
+const renderCards = (cardInfo) => {
+  cardsBox.prepend(generateCard(cardInfo));
+};
+
+//Рендер для карточек//
+
+initialCards.forEach((cardInfo) => {
+  renderCards(cardInfo);
+});
