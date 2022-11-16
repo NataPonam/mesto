@@ -1,4 +1,4 @@
-.card__like {
+.card__btn {
   padding: 0;
   padding-right: 22px;
   background-color: transparent;
@@ -11,21 +11,14 @@
   cursor: pointer;
   opacity: 1;
   transition: opacity .2s ease-in-out;
-  transition: background 2000s;
 }
 
-.card__like:hover {
+.card__btn:hover {
   opacity: .5;
 }
 
-.card__like:focus {
-  background-image: url(../../../images/heart_active.svg);
-  opacity: 1;
-  transition: background 0s;
-}
-
 @media screen and (min-width: 1280px) {
-  .card__like {
+  .card__btn {
     padding-right: 27px;
   }
 }

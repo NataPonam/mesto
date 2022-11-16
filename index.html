@@ -28,60 +28,20 @@
       </div>
       <button class="profile__btn-add" type="button" aria-label="добавить"></button>
     </section>
+
     <section class="cards">
 
       <ul class="cards__list">
         <template id="cards__template">
           <li class="card">
             <button class="card__trash" type="button" aria-label="удалить"></button>
-            <img class="card__img" src="./images/Карачаевск.jpg" alt=" Карачаевск">
+            <img class="card__img" src="#" alt="Местность">
             <div class="card__caption">
               <h2 class="card__title"></h2>
-              <button class="card__like" type="button" aria-label="нравится"></button>
+              <button class="card__btn" type="button" aria-label="нравится"></button>
             </div>
           </li>
         </template>
-
-        <!--<li class="card">
-          <button class="card__trash" type="button" aria-label="удалить"></button>
-          <img class="card__img" src="./images/Эльбрус.png" alt="Эльбрус">
-          <div class="card__caption">
-            <h2 class="card__title">Гора Эльбрус</h2>
-            <button class="card__like" type="button" aria-label="нравится"></button>
-          </div>
-        </li>
-        <li class="card">
-          <button class="card__trash" type="button" aria-label="удалить"></button>
-          <img class="card__img" src="./images/Домбай.png" alt="Домбай">
-          <div class="card__caption">
-            <h2 class="card__title">Домбай</h2>
-            <button class="card__like" type="button" aria-label="нравится"></button>
-          </div>
-        </li>
-        <li class="card">
-          <button class="card__trash" type="button" aria-label="удалить"></button>
-          <img class="card__img" src="./images/Красноярские_столбы.jpg" alt="Красноярские столбы">
-          <div class="card__caption">
-            <h2 class="card__title">Красноярск</h2>
-            <button class="card__like" type="button" aria-label="нравится"></button>
-          </div>
-        </li>
-        <li class="card">
-          <button class="card__trash" type="button" aria-label="удалить"></button>
-          <img class="card__img" src="./images/Озеро_Эльтон_Волгоград.jpg" alt="Волгоград">
-          <div class="card__caption">
-            <h2 class="card__title">Волгоград</h2>
-            <button class="card__like" type="button" aria-label="нравится"></button>
-          </div>
-        </li>
-        <li class="card">
-          <button class="card__trash" type="button" aria-label="удалить"></button>
-          <img class="card__img" src="./images/Байкал.jpg" alt="Байкал">
-          <div class="card__caption">
-            <h2 class="card__title">Иркутск</h2>
-            <button class="card__like" type="button" aria-label="нравится"></button>
-          </div>
-        </li>-->
       </ul>
     </section>
   </main>
@@ -120,6 +80,18 @@
       </form>
       <button class="popup__close-icon" type="button" aria-label="закрыть"></button>
     </div>
+  </div>
+
+  <!--Увеличить изображение-->
+  <div class="popup__img">
+    <figure class="popup__pic">
+      <button class="popup__close-icon popup__close-icon_big-pic" type="button" aria-label="закрыть"></button>
+      <img class="popup__big-pic" src="#" alt="#">
+      <figcaption class="popup__img_title">
+        <figcaption>
+    </figure>
+
+  </div>
   </div>
 
   <script src="./scripts/index.js"></script>

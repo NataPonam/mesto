@@ -1,0 +1,17 @@
+.popup__pic {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  max-width: 282px;
+  max-height: 299px;
+  object-fit: scale-down;
+}
+
+@media screen and (min-width: 1280px) {
+  .popup__pic {
+    width: 100%;
+    min-width: 816px;
+    max-height: 540px;
+    padding: 0;
+  }
+}
