@@ -1,3 +1,4 @@
 .popup__container_big-pic {
   position: relative;
+  max-width: 75vw
 }
