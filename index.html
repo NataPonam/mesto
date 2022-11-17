@@ -18,7 +18,7 @@
     <img class="header__logo" src="./images/logo.svg" alt="логотип">
   </header>
 
-  <main>
+  <main class="main">
     <section class="profile">
       <img class="profile__avatar" src="./images/avatar_img.jpg" alt="фото">
       <div class="profile__container">
@@ -30,7 +30,6 @@
     </section>
 
     <section class="cards">
-
       <ul class="cards__list">
         <template id="cards__template">
           <li class="card">
@@ -84,14 +83,13 @@
 
   <!--Увеличить изображение-->
   <div class="popup__img">
-    <figure class="popup__pic">
+    <div class="popup__container_big-pic">
       <button class="popup__close-icon popup__close-icon_big-pic" type="button" aria-label="закрыть"></button>
-      <img class="popup__big-pic" src="#" alt="#">
-      <figcaption class="popup__img_title">
-        <figcaption>
-    </figure>
-
-  </div>
+      <figure class="popup__pic">
+        <img class="popup__big-pic" src="#" alt="#">
+        <figcaption class="popup__img_title"></figcaption>
+      </figure>
+    </div>
   </div>
 
   <script src="./scripts/index.js"></script>

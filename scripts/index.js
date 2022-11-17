@@ -38,7 +38,7 @@ let popupPlaceClose = popupEl.querySelector('.popup__close-icon');
 
 
 function openPopupPlaces() {
-  popupEl.classList.add('popup__places_opened');
+  popupEl.classList.toggle('popup__places_opened');
 
 };
 function closePopupPlaces() {
@@ -94,7 +94,6 @@ const handleSubmitAddPlace = (event) => {
 
 formPlaces.addEventListener('submit', handleSubmitAddPlace);
 
-
 //Получаем шаблон//
 const cardTemplate = document.querySelector('#cards__template').content.querySelector('.card');
 
@@ -109,7 +108,6 @@ const handleDeleteCard = (event) => {
 const generateCard = (cardInfo) => {
 
   const cardClone = cardTemplate.cloneNode(true); //Клон из темплейта, работаем с ним//
-
   const title = cardClone.querySelector('.card__title');
   title.textContent = cardInfo.name;
 
@@ -132,21 +130,20 @@ const generateCard = (cardInfo) => {
   const bigPicElement = document.querySelector('.popup__img');
   const imgBig = document.querySelector('.popup__big-pic');
   const titlePic = document.querySelector('.popup__img_title');
-
+  const closePopupImg = document.querySelector('.popup__close-icon_big-pic');
 
   function handleBigSizePic() {
     bigPicElement.classList.toggle('card__img_zoom');
     imgBig.src = image.src;
     titlePic.textContent = title.textContent;
   }
-
-
-  /*function handleBigSizePic(event) {
-    event.target.classList.toggle('card__img_zoom');
-  }*/
-
   image.addEventListener('click', handleBigSizePic); //Повесили клик по картинке//
 
+  //Закрытие попапа с изображением//
+  function handleClosePopupImg() {
+    bigPicElement.classList.remove('card__img_zoom');
+  }
+  closePopupImg.addEventListener('click', handleClosePopupImg);
 
   return cardClone;
 }
@@ -163,60 +160,3 @@ initialCards.forEach((cardInfo) => {
   renderCards(cardInfo);
 });
 
-/*//Попап изображения//
-
-function handleBigSizePic(event) {
-  event.target.classList.toggle('.card__img_zoom');
-}
-
-const bigPic = cardClone.querySelector('.card__img'); //Обявили переменную бигПик//
-
-bigPic.addEventListener('click', handleBigSizePic);
-console.log('click'); //Повесили клик по картинке//
-*/
-//Разобраться!!!//
-
-/*function setListenersForItem(element, image) {
-  const deleteButton = element.querySelector('.element__delete');
-  deleteButton.addEventListener('click', handleDelete); // TODO передаем ссылку на функцию
-  // 
-  const likeButton = element.querySelector('.element__like');
-  likeButton.addEventListener('click', handleLike);
-  // 
-  const cardImage = element.querySelector('.element__image-btn');
-  cardImage.addEventListener('click', () => handleGenerateImagePopup(element, image));
-}
-
-function handleGenerateImagePopup(element, image) {
-  const bigImageName = element.textContent;
-
-  imagePopup.src = image.src;
-  imageTitle.textContent = bigImageName;
-  imagePopup.alt = bigImageName;
-
-  togglePopup(popupImage);
-}
-/*<section class="popup popup_image_big">
-<div class="popup__container popup__container_image_big">
-    <img class="popup__big-image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg" alt="Иваново">
-    <button type="button" class="popup__close-button popup__close-button_image_big" aria-label="Закрыть"></button>
-    <h2 class="popup__card-name">Иваново</h2>
-</div>
-</section>
-<template class="card-template">
-      <article class="element">
-         <button class="element__image-btn">
-            <img class="element__image" src="https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg" alt="Kamchatka"></button>
-            <button type="button" class="element__delete" aria-label="del"></button>
-         <div class="element__texts">
-            <h2 class="element__text">Камчатка</h2>
-            <button type="button" class="element__like" aria-label="like"></button>
-         </div>
-      </article>
-  </template>*/
-/*const popupImage = document.querySelector('.popup_image_big');
-const popupCloseImage = popupImage.querySelector('.popup__close-button_image_big');
-const imageTitle = popupImage.querySelector('.popup__card-name');
-const imagePopup = popupImage.querySelector('.popup__big-image');
-
-*/
