@@ -32,17 +32,17 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 //Попап добавления локации//
 
-let popupEl = document.querySelector('.popup__places');
+let popupEl = document.querySelector('.popup_places');
 let popupPlaceOpen = document.querySelector('.profile__btn-add');
 let popupPlaceClose = popupEl.querySelector('.popup__close-icon');
 
 
 function openPopupPlaces() {
-  popupEl.classList.toggle('popup__places_opened');
+  popupEl.classList.toggle('popup_places_opened');
 
 };
 function closePopupPlaces() {
-  popupEl.classList.remove('popup__places_opened');
+  popupEl.classList.remove('popup_places_opened');
 };
 
 popupPlaceOpen.addEventListener('click', openPopupPlaces);
