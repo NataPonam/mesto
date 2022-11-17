@@ -129,7 +129,7 @@ const generateCard = (cardInfo) => {
 
   const bigPicElement = document.querySelector('.popup_img');
   const imgBig = document.querySelector('.popup__big-pic');
-  const titlePic = document.querySelector('.popup_img_title');
+  const titlePic = document.querySelector('.popup__pic_title');
   const closePopupImg = document.querySelector('.popup__close-icon_big-pic');
 
   function handleBigSizePic() {
