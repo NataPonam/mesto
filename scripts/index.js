@@ -1,4 +1,4 @@
-let popupElem = document.querySelector('.popup');
+let popupElem = document.querySelector('.popup__profile');
 let popupOpen = document.querySelector('.profile__btn-edit');
 let popupClose = popupElem.querySelector('.popup__close-icon');
 let profileName = document.querySelector('.profile__name');
