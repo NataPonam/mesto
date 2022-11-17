@@ -1,4 +1,4 @@
-let popupElem = document.querySelector('.popup__profile');
+let popupElem = document.querySelector('.popup_profile');
 let popupOpen = document.querySelector('.profile__btn-edit');
 let popupClose = popupElem.querySelector('.popup__close-icon');
 let profileName = document.querySelector('.profile__name');
@@ -127,9 +127,9 @@ const generateCard = (cardInfo) => {
 
   //Увеличение картинки//
 
-  const bigPicElement = document.querySelector('.popup__img');
+  const bigPicElement = document.querySelector('.popup_img');
   const imgBig = document.querySelector('.popup__big-pic');
-  const titlePic = document.querySelector('.popup__img_title');
+  const titlePic = document.querySelector('.popup_img_title');
   const closePopupImg = document.querySelector('.popup__close-icon_big-pic');
 
   function handleBigSizePic() {
