@@ -54,8 +54,10 @@
       <form class="popup__form" name="form">
         <h3 class="popup__title">Редактировать профиль</h3>
         <fieldset class="popup__input-box">
-          <input class="popup__input popup__input_type_name" type="text" name="profile-name" autocomplete="off">
-          <input class="popup__input popup__input_type_info" type="text" name="profile-info" autocomplete="off">
+          <input class="popup__input popup__input_type_name" type="text" name="profile-name" autocomplete="off"
+            placeholder="Имя">
+          <input class="popup__input popup__input_type_info" type="text" name="profile-info" autocomplete="off"
+            placeholder="Вид деятельности">
         </fieldset>
         <button class="popup__btn" type="submit">Сохранить</button>
       </form>
@@ -68,7 +70,7 @@
         <h3 class="popup__title">Новое место</h3>
         <fieldset class="popup__input-box">
           <input class="popup__input popup__input_type_place" type="text" name="place" autocomplete="off"
-            placeholder="Название">
+            placeholder="Название" id="input">
           <input class="popup__input popup__input_type_link" type="text" name="place-link" autocomplete="off"
             placeholder="Ссылка на картинку">
         </fieldset>
@@ -81,13 +83,14 @@
     <div class="popup__wrapper">
       <button class="popup__close-icon popup__close-icon_big-pic" type="button" aria-label="закрыть"></button>
       <figure class="popup__pic">
-        <img class="popup__big-pic" src="#" alt="#">
+        <img class="popup__big-pic" src="#" alt="Изображение">
         <figcaption class="popup__figcaption"></figcaption>
       </figure>
     </div>
   </div>
-
+  <script src="./scripts/constans.js"></script>
   <script src="./scripts/index.js"></script>
+
 
 </body>
 

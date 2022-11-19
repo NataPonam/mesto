@@ -53,7 +53,5 @@
 @import url(../blocks/popup/__big-pic/popup__big-pic.css);
 
 @import url(../blocks/popup/_places/popup_places.css);
-@import url(../blocks/popup/_places/popup_places_opened.css);
 
 @import url(../blocks/popup/__form-places/popup__form-places.css);
-@import url(../blocks/card/__img/_zoom/card__img_zoom.css);
