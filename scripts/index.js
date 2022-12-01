@@ -24,13 +24,37 @@ const popupPicture = popupElementImages.querySelector('.popup__big-pic');
 const pictureFigcaption = popupElementImages.querySelector('.popup__figcaption');
 const buttonClosePopupImage = document.querySelector('.popup__close-icon_big-pic');
 
+//ОБЩАЯ ФУНКЦИЯ ОТКРЫТИЯ/
 function openPopup(popup) {
-  popup.classList.add('popup_opened');///ОБЩАЯ ФУНКЦИЯ ОТКРЫТИЯ/
+  popup.classList.add('popup_opened');
 };
 
+//ОБЩАЯ ФУНКЦИЯ ЗАКРЫТИЯ//
 function closePopup(popup) {
-  popup.classList.remove('popup_opened');//ОБЩАЯ ФУНКЦИЯ ЗАКРЫТИЯ//
+  popup.classList.remove('popup_opened');
 };
+
+/*Закрытие по esc//На весь документ установили слушатель, если нажата калавиша Esc, 
+то находим переменную с классом popup_opened и вызываем функцию закрытия попапа*/
+
+document.addEventListener('keydown', function (event) {
+  if (event.key === 'Escape') {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+});
+
+/*Закрытие попапа по полю overlay. Повесили слушатель на весь документ, 
+если событие 'клик' произошло на объекте с классом popup, то 
+далее находим переменную с классом popup_opened и вызываем функцию закрытия попапа */
+
+document.addEventListener('click', function (event) {
+  if (event.target.classList.contains('popup')) {
+    const popup = document.querySelector('.popup_opened');
+    closePopup(popup);
+  }
+});
+
 
 //ПОПАП профиль//
 buttonOpenPopupEditProfile.addEventListener('click', function () {

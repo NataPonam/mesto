@@ -2,6 +2,7 @@
   background-color: #fff;
   border-radius: 10px;
   max-width: 282px;
+  max-height: 322px;
   display: grid;
   align-content: space-between;
   position: relative;
@@ -12,7 +13,9 @@
 
 @media screen and (min-width: 1280px) {
   .popup__container {
-    min-width: 430px;
-    padding: 0;
+    max-width: 430px;
+    max-height: 330px;
+    padding: 34px 36px 36px 36px;
+    /*padding: 0;*/
   }
 }
