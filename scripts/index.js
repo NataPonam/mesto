@@ -1,4 +1,4 @@
-const popup = document.querySelector('.popup')
+const popup = document.querySelector('.popup');
 
 const popupElemProfile = document.querySelector('.popup_profile');
 const buttonOpenPopupEditProfile = document.querySelector('.profile__btn-edit');
@@ -149,4 +149,5 @@ const renderInitialCards = (cardInfo) => {
 initialCards.forEach((cardInfo) => {
   renderInitialCards(cardInfo);
 });
+
 

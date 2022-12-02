@@ -1,4 +1,3 @@
-
 /*
 isValid — проверяет валидность поля, внутри вызывает showInputError или hideInputError.
 formElement — html-элемент формы, в которой находится проверяемое поле ввода. 
