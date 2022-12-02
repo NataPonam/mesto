@@ -11,6 +11,7 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_info');
 
 const popupElementPlaces = document.querySelector('.popup_places');
+const popupSubmitButton = document.querySelector('.popup__btn');
 const buttonOpenPopupAddPlace = document.querySelector('.profile__btn-add');
 const buttonClosePopupAddPlace = popupElementPlaces.querySelector('.popup__close-icon');
 
@@ -27,34 +28,37 @@ const buttonClosePopupImage = document.querySelector('.popup__close-icon_big-pic
 //ОБЩАЯ ФУНКЦИЯ ОТКРЫТИЯ/
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+  document.addEventListener('keydown', clickEsc);
+  popup.addEventListener('click', closePopupOverlay);
 };
 
 //ОБЩАЯ ФУНКЦИЯ ЗАКРЫТИЯ//
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keydown', clickEsc);
+  popup.removeEventListener('click', closePopupOverlay);
 };
+
 
 /*Закрытие по esc//На весь документ установили слушатель, если нажата калавиша Esc, 
 то находим переменную с классом popup_opened и вызываем функцию закрытия попапа*/
-
-document.addEventListener('keydown', function (event) {
+const clickEsc = (event) => {
   if (event.key === 'Escape') {
     const popup = document.querySelector('.popup_opened');
     closePopup(popup);
   }
-});
+};
 
 /*Закрытие попапа по полю overlay. Повесили слушатель на весь документ, 
 если событие 'клик' произошло на объекте с классом popup, то 
 далее находим переменную с классом popup_opened и вызываем функцию закрытия попапа */
 
-document.addEventListener('click', function (event) {
+const closePopupOverlay = (event) => {
   if (event.target.classList.contains('popup')) {
     const popup = document.querySelector('.popup_opened');
     closePopup(popup);
   }
-});
-
+};
 
 //ПОПАП профиль//
 buttonOpenPopupEditProfile.addEventListener('click', function () {
@@ -85,8 +89,9 @@ buttonClosePopupAddPlace.addEventListener('click', function () {
   closePopup(popupElementPlaces);
 });
 
-const handleSubmitAddPlace = (event) => {
-  event.preventDefault();
+const handleSubmitAddPlace = (evt) => {
+  evt.preventDefault();
+  popupSubmitButton.classList.add('popup__btn_inactive');//НЕ РАБОТАЕТ ДОБАВЛЕНИЕ КЛАССА!!!//
   renderInitialCards({ name: placeInput.value, link: linkImgInput.value });
   formPlaces.reset();
   closePopup(popupElementPlaces);
@@ -124,7 +129,6 @@ const generateCard = (cardInfo) => {
   likeBtn.addEventListener('click', handleLikeBtn);
 
   //Увеличение картинки//
-
   function handleZoomImage() {
     openPopup(popupElementImages);
     popupPicture.src = cardImage.src;
@@ -149,5 +153,6 @@ const renderInitialCards = (cardInfo) => {
 initialCards.forEach((cardInfo) => {
   renderInitialCards(cardInfo);
 });
+
 
 
