@@ -11,12 +11,13 @@ const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_info');
 
 const popupElementPlaces = document.querySelector('.popup_places');
-const popupSubmitButton = document.querySelector('.popup__btn');
+
 const buttonOpenPopupAddPlace = document.querySelector('.profile__btn-add');
 const buttonClosePopupAddPlace = popupElementPlaces.querySelector('.popup__close-icon');
 
 const cardsList = document.querySelector('.cards__list'); //СПИСОК ВСЕХ КАРТОЧЕК//
 const formPlaces = document.querySelector('.popup__form-places');//ФОРМА//
+const popupSubmitButton = formPlaces.querySelector('.popup__btn');
 const placeInput = document.querySelector('.popup__input_type_place'); //ИНПУТ МЕСТО//
 const linkImgInput = document.querySelector('.popup__input_type_link'); //ИНПУТ ССЫЛКА//
 
@@ -91,10 +92,12 @@ buttonClosePopupAddPlace.addEventListener('click', function () {
 
 const handleSubmitAddPlace = (evt) => {
   evt.preventDefault();
-  popupSubmitButton.classList.add('popup__btn_inactive');//НЕ РАБОТАЕТ ДОБАВЛЕНИЕ КЛАССА!!!//
+  popupSubmitButton.disabled = true;
+  popupSubmitButton.classList.add('popup__btn_inactive');
   renderInitialCards({ name: placeInput.value, link: linkImgInput.value });
   formPlaces.reset();
   closePopup(popupElementPlaces);
+  console.log(popupSubmitButton);
 }
 
 formPlaces.addEventListener('submit', handleSubmitAddPlace);
