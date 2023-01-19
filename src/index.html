@@ -9,18 +9,17 @@
   <meta name="keywords" content="Россия, Карачаевск, Эльбрус, Домбай, Байкал, Красноярск, Волгоград">
   <meta name="author" content="Наталья Понамаренко">
   <meta name="copyright" content="Наталья Понамаренко">
-  <link rel="stylesheet" href="./pages/index.css">
   <title>Место</title>
 </head>
 
 <body class="body">
   <header class="header">
-    <img class="header__logo" src="./images/logo.svg" alt="логотип">
+    <img class="header__logo" src="<%=require('./images/logo.svg')%>" alt="логотип">
   </header>
 
   <main class="main">
     <section class="profile">
-      <img class="profile__avatar" src="./images/avatar_img.jpg" alt="фото">
+      <img class="profile__avatar" src="<%=require('./images/avatar_img.jpg')%>" alt="фото">
       <div class="profile__container">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__btn-edit" type="button" aria-label="изменить"></button>
@@ -92,8 +91,6 @@
       </figure>
     </div>
   </div>
-
-  <script type="module" src="./src/index.js"></script>
 
 </body>
 
