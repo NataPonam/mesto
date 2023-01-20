@@ -26,3 +26,13 @@ const initialCards = [
 ];
 
 export { initialCards };
+
+//Валидация !!!! //
+export const validConfig = {
+  /*formSelector: '.popup__container',*/
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__btn',
+  inactiveButtonClass: 'popup__btn_inactive',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__input-error_active'
+};

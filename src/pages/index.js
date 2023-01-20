@@ -1,5 +1,6 @@
-import './index.css'
-import { initialCards } from '../components/constans.js'
+import './index.css';
+import { initialCards } from '../components/constans.js';
+import { validConfig } from '../components/constans.js';
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
@@ -12,7 +13,7 @@ const buttonOpenPopupEditProfile = document.querySelector('.profile__btn-edit');
 const profileName = document.querySelector('.profile__name');
 const profileInfo = document.querySelector('.profile__info');
 
-export const formEditProfile = document.forms['profile-form'];
+const formEditProfile = document.forms['profile-form'];
 const nameInput = document.querySelector('.popup__input_type_name');
 const jobInput = document.querySelector('.popup__input_type_info');
 const popupElementPlaces = document.querySelector('.popup_places');
@@ -28,23 +29,15 @@ const popupPicture = popupElementImages.querySelector('.popup__big-pic');
 const pictureFigcaption = popupElementImages.querySelector('.popup__figcaption');
 const closeButtons = document.querySelectorAll('.popup__close-icon');
 
-const popupWithImage = new PopupWithImage({ popup: popupElementImages });
-const userInfo = new UserInfo(profileName, profileInfo);
+const popupWithImage = new PopupWithImage({ popupSelector: ('.popup_img') });
+const userInfo = new UserInfo({ nameSelector: ('.profile__name'), infoSelector: ('.profile__info') });
 
-//Валидация !!!! //
-const validSelectors = {
-  formSelector: '.popup__container',
-  inputSelector: '.popup__input',
-  submitButtonSelector: '.popup__btn',
-  inactiveButtonClass: 'popup__btn_inactive',
-  inputErrorClass: 'popup__input_type_error',
-  errorClass: 'popup__input-error_active'
-};
 
-const profileValidation = new FormValidator(validSelectors, formEditProfile);
+
+const profileValidation = new FormValidator(validConfig, formEditProfile);
 profileValidation.enableValidation();
 
-const placeValidation = new FormValidator(validSelectors, formPlaces);
+const placeValidation = new FormValidator(validConfig, formPlaces);
 placeValidation.enableValidation();
 
 //ПОПАП профиль//
@@ -54,17 +47,16 @@ buttonOpenPopupEditProfile.addEventListener('click', function () {
 });
 
 const popupProfileForm = new PopupWithForm({
-  popup: popupElemProfile,
+  popupSelector: ('.popup_profile'),
   submitForm: (data) => { userInfo.setUserInfo(data), popupProfileForm.close() }
 });
 
 const popupAddPlaceForm = new PopupWithForm({
-  popup: popupElementPlaces,
+  popupSelector: ('.popup_places'),
   submitForm: (formValues) => {
     const cardInfo = { name: formValues.placeName, link: formValues.placeLink };
     renderInitialCards.addItem(createCard(cardInfo));
     popupAddPlaceForm.close();
-    console.log({ formValues });
   }
 });
 
@@ -74,12 +66,10 @@ function handleCardClick(name, link) {
 
 function createCard(cardInfo) {
   const cardElement = new Card(cardInfo, '#cards__template', handleCardClick);
-  console.log(cardInfo);
   return cardElement.getView();
 }
 
 buttonOpenPopupAddPlace.addEventListener('click', function () {
-  console.log('click');
   popupAddPlaceForm.open();
   placeValidation.resetValidation();
 });
@@ -90,14 +80,13 @@ const renderInitialCards = new Section({
     renderInitialCards.addItem(createCard(cardInfo));
   },
 },
-  cardsList//список всех карточек
+  { containerSelector: ('.cards__list') }//список всех карточек
 );
 
-renderInitialCards.initialArray();
+renderInitialCards.renderInitialArray();
 
 popupAddPlaceForm.setEventListeners();
 popupProfileForm.setEventListeners();
 popupWithImage.setEventListeners();
 
 
-export { handleCardClick }

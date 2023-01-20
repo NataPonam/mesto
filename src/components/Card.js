@@ -7,7 +7,10 @@ export default class Card {
   }
 
   _getTemplate() {
-    return this._cardElement;
+    const cardElement = document.querySelector(this._templateSelector)
+      .content.querySelector('.card')
+      .cloneNode(true);
+    return cardElement;
   }
 
   _setData() {
@@ -19,6 +22,8 @@ export default class Card {
   _deleteCard() {
     this._newCard.remove();
     this._newCard = null;
+    this._placeLink = null;
+    this._placeName = null;//Правильно Вас поняла?//
   }
 
   _likeCard(event) {
@@ -36,9 +41,6 @@ export default class Card {
   }
 
   getView() {
-    this._cardElement = document.querySelector(this._templateSelector)
-      .content.querySelector('.card')
-      .cloneNode(true);
 
     this._newCard = this._getTemplate();
 
@@ -53,4 +55,3 @@ export default class Card {
     return this._newCard;
   }
 }
-
