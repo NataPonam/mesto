@@ -22,8 +22,9 @@ export default class Card {
   _deleteCard() {
     this._newCard.remove();
     this._newCard = null;
-    this._placeLink = null;
-    this._placeName = null;//Правильно Вас поняла?//
+    this._deleteCardBtn = null;
+    this._likeCardHeart = null;
+    this._cardImage = null;
   }
 
   _likeCard(event) {

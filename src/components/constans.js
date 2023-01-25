@@ -25,12 +25,11 @@ const initialCards = [
   }
 ];
 
-export { initialCards };
-
-export const validConfig = {
+const validConfig = {
   inputSelector: '.popup__input',
   submitButtonSelector: '.popup__btn',
   inactiveButtonClass: 'popup__btn_inactive',
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__input-error_active'
 };
+export { initialCards, validConfig };
