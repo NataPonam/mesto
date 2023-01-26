@@ -1,4 +1,5 @@
 import './index.css';
+import Api from '../components/Api.js';
 import { initialCards } from '../components/constans.js';
 import { validConfig } from '../components/constans.js';
 import FormValidator from '../components/FormValidator.js';
@@ -32,13 +33,19 @@ const closeButtons = document.querySelectorAll('.popup__close-icon');
 const popupWithImage = new PopupWithImage({ popupSelector: ('.popup_img') });
 const userInfo = new UserInfo({ nameSelector: ('.profile__name'), infoSelector: ('.profile__info') });
 
-
-
 const profileValidation = new FormValidator(validConfig, formEditProfile);
 profileValidation.enableValidation();
 
 const placeValidation = new FormValidator(validConfig, formPlaces);
 placeValidation.enableValidation();
+
+const api = new Api({
+  baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-58',
+  headers: {
+    authorization: '2380923a-f5b9-4b4c-879a-8e7b78ad0407',
+    'Content-Type': 'application/json'
+  }
+});
 
 //ПОПАП профиль//
 buttonOpenPopupEditProfile.addEventListener('click', function () {
