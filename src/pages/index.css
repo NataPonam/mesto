@@ -10,7 +10,10 @@
 @import url(../blocks/main/main.css);
 
 @import url(../blocks/profile/profile.css);
+@import url(../blocks/profile/__avatar/profile__avatar-wrapper.css);
+@import url(../blocks/profile/__avatar/profile__avatar-edit.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);
+
 @import url(../blocks/profile/__btn-add/profile__btn-add.css);
 @import url(../blocks/profile/__btn-edit/profile__btn-edit.css);
 @import url(../blocks/profile/__container/profile__container.css);
@@ -28,6 +31,7 @@
 @import url(../blocks/card/__trash/card__trash.css);
 @import url(../blocks/card/__btn/card__btn.css);
 @import url(../blocks/card/__btn/_liked/card__btn_liked.css);
+@import url(../blocks/card/__count-like/__count-like.css);
 
 @import url(../blocks/footer/__copyright/footer__copyright.css);
 @import url(../blocks/footer/footer.css);

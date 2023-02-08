@@ -1,21 +1,26 @@
 export default class UserInfo {
-  constructor({ nameSelector, infoSelector }) {
-    this._name = document.querySelector(nameSelector);
-    this._info = document.querySelector(infoSelector);
+  constructor({ name, about, avatar }) {
+    this._name = document.querySelector(name);
+    this._about = document.querySelector(about);
+    this._avatar = document.querySelector(avatar);
   }
   getUserInfo() {
     return {
-      profileInputName: this._name.textContent,
-      profileInputInfo: this._info.textContent
+      name: this._name.textContent,
+      about: this._about.textContent
     }
   }
 
-  setUserInfo(data) {
-    this._name.textContent = data.profileInputName;
-    this._info.textContent = data.profileInputInfo;
+  setUserInfo(userInfo) {
+    this._name.textContent = userInfo.name;
+    this._about.textContent = userInfo.about;
   }
 
+  avatar(data) {
+    this._avatar.src = data.avatar;
+  }
 }
+
 
 
 // /*Класс UserInfo отвечает за управление отображением информации о пользователе на странице. 

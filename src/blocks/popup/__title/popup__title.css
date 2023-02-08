@@ -16,3 +16,11 @@
     margin-bottom: 54px;
   }
 }
+
+.popup__title.conf {
+  margin-bottom: 22px;
+}
+
+.popup__title.avatar {
+  margin-bottom: 54px;
+}

@@ -1,9 +1,19 @@
+
 export default class Card {
-  constructor(data, templateSelector, handleCardClick) {
+  constructor(data, templateSelector, handleCardClick, { deleteCard, handleCardLikeOn, handleCardLikeOff }) {
+    this._data = data;
+    this._id = data._id;
     this._placeName = data.name;
     this._placeLink = data.link;
+    this._likes = data.likes;
+
+
     this._templateSelector = templateSelector;
+    this._deleteCard = deleteCard;
     this._handleCardClick = handleCardClick;
+    this._handleCardLikeOn = handleCardLikeOn;
+    this._handleCardLikeOff = handleCardLikeOff;
+    this._likeSelector = 'card__btn_liked';
   }
 
   _getTemplate() {
@@ -19,22 +29,45 @@ export default class Card {
     this._cardImage.alt = this._placeName;
   }
 
-  _deleteCard() {
+  delete() {
     this._newCard.remove();
     this._newCard = null;
     this._deleteCardBtn = null;
     this._likeCardHeart = null;
     this._cardImage = null;
+
+  }
+  //прячем кнопку удаления//
+  _hideTrashBtn() {
+    if (this._data.owner._id !== '90d2ec21a7f709b619b8533d') {
+      this._deleteCardBtn.remove()
+    }
   }
 
-  _likeCard(event) {
-    event.target.classList.toggle('card__btn_liked');
+  //ставим лайк//
+  _likeCard() {
+    this._likeCardHeart.classList.toggle(this._likeSelector);
+  }
+
+  //считаем лайки//
+  counterLikes(num) {
+    this._likeCounter.textContent = num.likes.length;
+    this._likeCard();
+    console.log(num.likes.length);
+  }
+  _setInitialCountLike() {
+    this._likeCounter.textContent = this._likes.length;
   }
 
   _setEventListeners() {
-    this._deleteCardBtn.addEventListener('click', () => { this._deleteCard() })
+    this._deleteCardBtn.addEventListener('click', () => { this._deleteCard(this._id) })
 
-    this._likeCardHeart.addEventListener('click', (event) => { this._likeCard(event) });
+    this._likeCardHeart.addEventListener('click', (event) => {
+      event.target.classList.contains(this._likeSelector) ?
+        this._handleCardLikeOff(this._id) :
+        this._handleCardLikeOn(this._id);
+    }
+    );
 
     this._cardImage.addEventListener('click', () =>
       this._handleCardClick(this._placeName, this._placeLink)
@@ -49,10 +82,14 @@ export default class Card {
     this._cardImage = this._newCard.querySelector('.card__img');
     this._deleteCardBtn = this._newCard.querySelector('.card__trash');
     this._likeCardHeart = this._newCard.querySelector('.card__btn');
+    this._likeCounter = this._newCard.querySelector('.card__count-like');
 
     this._setData();
     this._setEventListeners();
+    this._setInitialCountLike();
+    this._hideTrashBtn();
 
+    /*console.log(this._data.owner._id);*/
     return this._newCard;
   }
 }

@@ -19,7 +19,10 @@
 
   <main class="main">
     <section class="profile">
-      <img class="profile__avatar" src="<%=require('./images/avatar_img.jpg')%>" alt="фото">
+      <div class="profile__avatar-wrapper">
+        <img class="profile__avatar-edit" src="<%=require('./images/Vector_btn_edit_320.svg')%>" alt="иконка карандаша">
+        <img class="profile__avatar" src="<%=require('./images/avatar_img.jpg')%>" alt="фото">
+      </div>
       <div class="profile__container">
         <h1 class="profile__name">Жак-Ив Кусто</h1>
         <button class="profile__btn-edit" type="button" aria-label="изменить"></button>
@@ -36,7 +39,10 @@
             <img class="card__img" src="#" alt="Местность">
             <div class="card__caption">
               <h2 class="card__title"></h2>
-              <button class="card__btn" type="button" aria-label="нравится"></button>
+              <div class="card__count-wrapper">
+                <button class="card__btn" type="button" aria-label="нравится"></button>
+                <p class="card__count-like"></p>
+              </div>
             </div>
           </li>
         </template>
@@ -53,10 +59,10 @@
       <form class="popup__form form" name="profile-form" novalidate>
         <h3 class="popup__title">Редактировать профиль</h3>
         <fieldset class="popup__input-box">
-          <input id="input-profileName" class="popup__input popup__input_type_name" type="text" name="profileInputName"
+          <input id="input-profileName" class="popup__input popup__input_type_name" type="text" name="name"
             autocomplete="off" placeholder="Имя" minlength="2" maxlength="40" required>
           <span class="popup__input-error input-profileName-error"></span>
-          <input id="input-profileInfo" class="popup__input popup__input_type_info" type="text" name="profileInputInfo"
+          <input id="input-profileInfo" class="popup__input popup__input_type_info" type="text" name="about"
             autocomplete="off" placeholder="Вид деятельности" minlength="2" maxlength="200" required>
           <span class="popup__input-error input-profileInfo-error"></span>
         </fieldset>
@@ -89,6 +95,29 @@
         <img class="popup__big-pic" src="#" alt="Изображение">
         <figcaption class="popup__figcaption"></figcaption>
       </figure>
+    </div>
+  </div>
+  <div class="popup popup_conf">
+    <div class="popup__container">
+      <form class="popup__form-conf form" name="conf-form" novalidate>
+        <h3 class="popup__title conf">Вы уверены?</h3>
+        <button class="popup__btn" type="submit">Да</button>
+      </form>
+      <button class="popup__close-icon" type="button" aria-label="закрыть"></button>
+    </div>
+  </div>
+  <div class="popup popup_edit-avatar">
+    <div class="popup__container">
+      <form class="popup__form form" name="avatar-form" novalidate>
+        <h3 class="popup__title avatar">Обновить аватар</h3>
+        <fieldset class="popup__input-box">
+          <input id="input-avatar" class="popup__input popup__input_type_avatar" type="url" name="link"
+            autocomplete="off" placeholder="Ссылка на картинку" required>
+          <span class="popup__input-error input-avatar-error"></span>
+        </fieldset>
+        <button class="popup__btn" type="submit">Сохранить</button>
+      </form>
+      <button class="popup__close-icon" type="button" aria-label="закрыть"></button>
     </div>
   </div>
 
