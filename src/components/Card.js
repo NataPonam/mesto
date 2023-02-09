@@ -7,13 +7,12 @@ export default class Card {
     this._placeLink = data.link;
     this._likes = data.likes;
 
-
     this._templateSelector = templateSelector;
     this._deleteCard = deleteCard;
     this._handleCardClick = handleCardClick;
     this._handleCardLikeOn = handleCardLikeOn;
     this._handleCardLikeOff = handleCardLikeOff;
-    this._likeSelector = 'card__btn_liked';
+    this._likedCard = 'card__btn_liked';
   }
 
   _getTemplate() {
@@ -46,7 +45,7 @@ export default class Card {
 
   //ставим лайк//
   _likeCard() {
-    this._likeCardHeart.classList.toggle(this._likeSelector);
+    this._likeCardHeart.classList.toggle(this._likedCard);
   }
 
   //считаем лайки//
@@ -63,7 +62,7 @@ export default class Card {
     this._deleteCardBtn.addEventListener('click', () => { this._deleteCard(this._id) })
 
     this._likeCardHeart.addEventListener('click', (event) => {
-      event.target.classList.contains(this._likeSelector) ?
+      event.target.classList.contains(this._likedCard) ?
         this._handleCardLikeOff(this._id) :
         this._handleCardLikeOn(this._id);
     }
@@ -84,12 +83,16 @@ export default class Card {
     this._likeCardHeart = this._newCard.querySelector('.card__btn');
     this._likeCounter = this._newCard.querySelector('.card__count-like');
 
+    this._likes.some((data) => data._id === '90d2ec21a7f709b619b8533d') ?
+      this._likeCardHeart.classList.add('card__btn_liked') :
+      null;
+
+
     this._setData();
     this._setEventListeners();
     this._setInitialCountLike();
     this._hideTrashBtn();
 
-    /*console.log(this._data.owner._id);*/
     return this._newCard;
   }
 }

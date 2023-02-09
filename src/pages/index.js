@@ -1,7 +1,7 @@
 import './index.css';
 import Api from '../components/Api.js';
-import { initialCards } from '../components/constans.js';
-import { validConfig } from '../components/constans.js';
+import { initialCards } from '../utils/constans.js';
+import { validConfig } from '../utils/constans.js';
 import FormValidator from '../components/FormValidator.js';
 import Card from '../components/Card.js';
 import Section from '../components/Section.js';
@@ -67,6 +67,7 @@ buttonEditAvatar.addEventListener('click', function () {
 //кнопка для открытия попап-Профиля//
 buttonOpenPopupEditProfile.addEventListener('click', function () {
   popupProfileForm._getInputValues(userInfo.getUserInfo());
+  console.log(popupProfileForm._getInputValues);
   popupProfileForm.open();
   profileValidation.resetValidation();
 });
@@ -183,9 +184,9 @@ popupWithImage.setEventListeners();
 popupAskForm.setEventListeners();
 
 api.getUser()
-  .then(() => {
-    userInfo.setUserInfo(),
-      userInfo.avatar()
+  .then((data) => {
+    userInfo.setUserInfo(data),
+      userInfo.avatar(data)
   })
   .catch(err => console.log(err));
 
