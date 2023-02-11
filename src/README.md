@@ -20,7 +20,7 @@ HTML, CSS, Java Script, ООП, ES6 modules, Webpack
 
 
 ##### GitHub
- https://nataponam.github.io/mesto/index.html
+ https://nataponam.github.io/mesto/
 
 
 
