@@ -7,7 +7,8 @@ export default class UserInfo {
   getUserInfo() {
     return {
       name: this._name.textContent,
-      about: this._about.textContent
+      about: this._about.textContent,
+      link: this._avatar.src
     }
   }
 
@@ -16,12 +17,10 @@ export default class UserInfo {
     this._about.textContent = userInfo.about;
   }
 
-  avatar(data) {
-    this._avatar.src = data.avatar;
+  setAvatar(userInfo) {
+    this._avatar.src = userInfo.avatar;
   }
 }
-
-
 
 // /*Класс UserInfo отвечает за управление отображением информации о пользователе на странице. 
 /*Этот класс:

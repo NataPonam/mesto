@@ -1,11 +1,12 @@
 
 export default class Card {
-  constructor(data, templateSelector, handleCardClick, { deleteCard, handleCardLikeOn, handleCardLikeOff }) {
+  constructor(data, templateSelector, handleCardClick, { deleteCard, handleCardLikeOn, handleCardLikeOff, userId }) {
     this._data = data;
     this._id = data._id;
     this._placeName = data.name;
     this._placeLink = data.link;
     this._likes = data.likes;
+    this._userId = userId;
 
     this._templateSelector = templateSelector;
     this._deleteCard = deleteCard;
@@ -38,7 +39,7 @@ export default class Card {
   }
   //прячем кнопку удаления//
   _hideTrashBtn() {
-    if (this._data.owner._id !== '90d2ec21a7f709b619b8533d') {
+    if (this._data.owner._id !== this._userId) {
       this._deleteCardBtn.remove()
     }
   }
@@ -49,7 +50,7 @@ export default class Card {
   }
 
   //считаем лайки//
-  counterLikes(num) {
+  updateLikes(num) {
     this._likeCounter.textContent = num.likes.length;
     this._likeCard();
     console.log(num.likes.length);
@@ -83,7 +84,7 @@ export default class Card {
     this._likeCardHeart = this._newCard.querySelector('.card__btn');
     this._likeCounter = this._newCard.querySelector('.card__count-like');
 
-    this._likes.some((data) => data._id === '90d2ec21a7f709b619b8533d') ?
+    this._likes.some((data) => data._id === this._userId) ?
       this._likeCardHeart.classList.add('card__btn_liked') :
       null;
 

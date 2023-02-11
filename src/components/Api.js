@@ -4,37 +4,35 @@ export default class Api {
     this._headers = headers;
   }
 
-  /*Common thing */
-  _resControl(res) {
+  /*Common things */
+  _checkResponse(res) {
     if (res.ok) {
       return res.json()
     }
     return Promise.reject(`Что-то пошло не так: ${res.status}`);
   }
-
+  //Спасибо!!!!!!!!
+  _request(url, options) {
+    return fetch(url, options).then(this._checkResponse)
+  }
 
   /*1. Загрузка информации о пользователе с сервера GET https://nomoreparties.co/v1/cohortId/users/me*/
   getUser() {
-    return fetch(`${this._url}/users/me`, {
+    return this._request(`${this._url}/users/me`, {
       headers: this._headers
     })
-      .then(res => this._resControl(res))
-      .catch((err) => {
-        console.log(err);
-      })
   }
 
   /*2. Загрузка карточек с сервера GET https://mesto.nomoreparties.co/v1/cohortId/cards */
   getAllCards() {
-    return fetch(`${this._url}/cards`, {
+    return this._request(`${this._url}/cards`, {
       headers: this._headers
     })
-      .then(res => this._resControl(res))
-
   }
+
   /*3. Редактирование профиля PATCH https://mesto.nomoreparties.co/v1/cohortId/users/me  */
   editProfile(user) {
-    return fetch(`${this._url}/users/me`, {
+    return this._request(`${this._url}/users/me`, {
       headers: this._headers,
       method: 'PATCH',
       body: JSON.stringify({
@@ -42,15 +40,11 @@ export default class Api {
         about: user.about
       })
     })
-      .then(res => this._resControl(res))
-      .catch((err) => {
-        console.log(err);
-      })
   }
 
   /*4. Добавление новой карточки POST https://mesto.nomoreparties.co/v1/cohortId/cards */
   getNewCard(data) {
-    return fetch(`${this._url}/cards`, {
+    return this._request(`${this._url}/cards`, {
       headers: this._headers,
       method: 'POST',
       body: JSON.stringify({
@@ -58,60 +52,42 @@ export default class Api {
         link: data.link
       })
     })
-      .then(res => this._resControl(res))
-
-      .catch((err) => {
-        console.log(err);
-      })
   }
-  /*5. Отображение количества лайков карточки */
-
-
   /*7. Удаление карточки DELETE https://mesto.nomoreparties.co/v1/cohortId/cards/cardId  */
   deleteCard(id) {
-    return fetch(`${this._url}/cards/${id}`, {
+    return this._request(`${this._url}/cards/${id}`, {
       headers: this._headers,
       method: 'DELETE',
 
     })
-      .then(res => this._resControl(res))
   }
-  /*8.1 Постановка лайка PUT https://mesto.nomoreparties.co/v1/cohortId/cards/cardId/likes */
 
+  /*8.1 Постановка лайка PUT https://mesto.nomoreparties.co/v1/cohortId/cards/cardId/likes */
   addLike(id) {
-    return fetch(`${this._url}/cards/${id}/likes`, {
+    return this._request(`${this._url}/cards/${id}/likes`, {
       headers: this._headers,
       method: 'PUT',
-
     })
-      .then(res => this._resControl(res))
   }
 
   /*8.2 Cнятие лайка DELETE https://mesto.nomoreparties.co/v1/cohortId/cards/cardId/likes*/
   deleteLike(id) {
-    return fetch(`${this._url}/cards/${id}/likes`, {
+    return this._request(`${this._url}/cards/${id}/likes`, {
       headers: this._headers,
       method: 'DELETE',
-
     })
-      .then(res => this._resControl(res))
   }
+
   //9. Обновление аватара пользователя PATCH https://mesto.nomoreparties.co/v1/cohortId/users/me/avatar 
-  editAvatar(avatar) {
-    return fetch(`${this._url}/users/me/avatar`, {
+  editAvatar(userInfo) {
+    return this._request(`${this._url}/users/me/avatar`, {
       headers: this._headers,
       method: 'PATCH',
       body: JSON.stringify({
-        avatar: avatar
+        avatar: userInfo.link
       })
     })
-      .then(res => this._resControl(res))
-      .catch((err) => {
-        console.log(err);
-      })
   }
-
-
 }
 
 
